@@ -2,8 +2,26 @@ Railscasts Episode #260: Messaging with Faye
 
 http://railscasts.com/episodes/260
 
-Commands
+Rails: 3.2.21
+faye(Ruby Server): 1.1.1
 
-  gem install faye
-  rackup faye.ru -s thin -E production
-  curl http://localhost:9292/faye -d 'message={"channel":"/messages/new", "data":"hello"}'
+Commands
+  cd chatter-before
+  bundle install
+  rake db:migrate
+  rails s
+
+  cd chatter-after
+  bundle install
+  rake db:migrate
+  rackup faye.ru -s thin -E production [In Terminal #1]
+  rails s  [In Terminal #2]
+  For testing:
+    curl http://localhost:9292/faye -d 'message={"channel":"/messages/new", "data":"hello", "ext":{"auth_token": FAYE_TOKEN}}'
+
+Error/Answers:
+1. WebSocket connection to 'ws://localhost:9292/faye' failed: Error during WebSocket handshake: 'Upgrade' header is missing
+
+A: Add this line to your Faye rackup (.ru) file:
+
+   Faye::WebSocket.load_adapter('thin')
