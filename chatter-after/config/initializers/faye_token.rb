@@ -1,1 +1,3 @@
-FAYE_TOKEN = "anything"
+FAYE_TOKEN = "9fda50a897c4f6091ae7b87c98e0eb0cf6c00bb3ea3f7ae2c81e86554d29c27f30edfebad057bc7f84543b725e152f3f013bd188482d735279e033cb75e52a7bb1fccc173a1cc34f5aa392828cb897293ecf2fc516682114c2bc85fe25c7acdd03fdb5a29e1352de1750db827a0860cb65c27896292d9afe4fba804d0eaeecc5"
+#  SecureRandom.hex(128)
+  #SecureRandom.urlsafe_base64(nil, false)
